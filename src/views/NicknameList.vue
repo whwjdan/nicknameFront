@@ -12,10 +12,10 @@
           <v-card class="mt-4 mb-4 mx-auto" max-width="200">
             <v-img class="white--text align-end" height="150px"
                    :lazy-src="item.image">
-              <v-card-title>{{item.name.title}}</v-card-title>
+              <v-card-title>{{item.nickname}}</v-card-title>
             </v-img>
             <v-card-text class="text--primary">
-              <div>{{item.name.title}}</div>
+              <div>{{item.price}}원</div>
             </v-card-text>
           </v-card>
         </v-col>
@@ -32,8 +32,8 @@
 
 import axios from "axios";
 
-var url = "https://randomuser.me/api/?results=20"
-
+//var url = "https://randomuser.me/api/?results=20"
+var url = "/api/nickname"
 
 export default {
   name: 'App',
@@ -51,7 +51,7 @@ export default {
     getUsers(){
       axios.get(url)
           .then(res =>
-  { this.pages = res.data.results})
+  { this.pages = res.data})
           .catch(error => {
             console.log(error)
           })
